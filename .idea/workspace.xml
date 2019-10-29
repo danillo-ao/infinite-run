@@ -3,61 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7f73be-9654-47a0-bba1-60fba085f6d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/Roboto-Black.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/Roboto-Black.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/Roboto-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/Roboto-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/Roboto-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/Roboto-Light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/Roboto-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/Roboto-Medium.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/Roboto-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/Roboto-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/Roboto-Thin.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/Roboto-Thin.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/misc/misc-original.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/misc/misc-original.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/misc/tile-set-floor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/misc/tile-set-floor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/misc/tile-set-original.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/misc/tile-set-original.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/player/player-dimensions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/player/player-dimensions.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/player/player-original.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/player/player-original.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/player/player-run.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/player/player-run.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/canvas-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/canvas-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/game-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/game-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cacache/node_modules/lru-cache/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cacache/node_modules/lru-cache/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cacache/node_modules/lru-cache/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cacache/node_modules/lru-cache/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cacache/node_modules/yallist/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cacache/node_modules/yallist/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cacache/node_modules/yallist/iterator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cacache/node_modules/yallist/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cacache/node_modules/yallist/yallist.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mini-css-extract-plugin/node_modules/schema-utils/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mini-css-extract-plugin/node_modules/schema-utils/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mini-css-extract-plugin/node_modules/schema-utils/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mini-css-extract-plugin/node_modules/schema-utils/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mini-css-extract-plugin/node_modules/schema-utils/src/ValidationError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mini-css-extract-plugin/node_modules/schema-utils/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mini-css-extract-plugin/node_modules/schema-utils/src/validateOptions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mini-css-extract-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mini-css-extract-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/node-sass/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/node-sass/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sass-loader/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sass-loader/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/terser-webpack-plugin/node_modules/schema-utils/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/terser-webpack-plugin/node_modules/schema-utils/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/terser-webpack-plugin/node_modules/schema-utils/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/terser-webpack-plugin/node_modules/schema-utils/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/terser-webpack-plugin/node_modules/schema-utils/src/ValidationError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/terser-webpack-plugin/node_modules/schema-utils/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/terser-webpack-plugin/node_modules/schema-utils/src/validateOptions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webpack/node_modules/schema-utils/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webpack/node_modules/schema-utils/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webpack/node_modules/schema-utils/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webpack/node_modules/schema-utils/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webpack/node_modules/schema-utils/src/ValidationError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webpack/node_modules/schema-utils/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webpack/node_modules/schema-utils/src/validateOptions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
