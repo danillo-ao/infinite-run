@@ -12,7 +12,10 @@
     "rootDir": "src",
     "paths": {
       "@configs/*": ["src/ts/configs/*"],
-      "@controllers/*": ["src/ts/controllers/*"]
+      "@controllers/*": ["src/ts/controllers/*"],
+      "@interfaces/*": ["src/ts/interfaces/*"],
+      "@player/*": ["src/ts/player/*"],
+      "@values/*": ["src/ts/values/*"]
     }
   },
   "include": [

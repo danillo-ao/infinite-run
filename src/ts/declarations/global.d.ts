@@ -1,7 +1,7 @@
-export {};
+import IGameProperties from "@interfaces/game-properties.interface";
 
 declare global {
   interface Window {
-    GameSettings: string;
+    gameProperties: IGameProperties;
   }
 }

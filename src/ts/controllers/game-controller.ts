@@ -1,10 +1,12 @@
-var speed = 100;
-var score = 0;
+import VGameProperties from "@values/game-properties.values";
 
 export default class GameController {
 
-  public render() {
-    console.log("render the game");
+  /**
+   * Função utilizada para definir os valores iniciais das propriedades do game
+   */
+  public setupGame = () => {
+    window.gameProperties = VGameProperties;
   };
 
 }

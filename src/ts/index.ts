@@ -6,7 +6,12 @@ import "../styles.scss";
 import GameController from "src/ts/controllers/game-controller";
 import CanvasController from "@controllers/canvas-controller";
 
-window.GameSettings = "Teste";
+
+
+
+// steps to initialize the game
+const Game = new GameController();
+Game.setupGame();
 
 const Canvas = new CanvasController();
 Canvas.init();
