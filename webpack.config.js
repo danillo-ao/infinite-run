@@ -2,18 +2,24 @@ const webpack = require('webpack');
 const path = require('path');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 
 module.exports = {
   watch: true,
-  entry: './src/js/index.js',
+  entry: './src/ts/index.ts',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, "dist")
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"],
+    plugins: [new TsconfigPathsPlugin()]
+  },
   module: {
     rules : [{
-      test: /\.js$/,
-      use: 'babel-loader',
+      test: /\.tsx?$/,
+      loader: "ts-loader",
       exclude: /node_modules/,
     }, {
       test: /\.scss$/,

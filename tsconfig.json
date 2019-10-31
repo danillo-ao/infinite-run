@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist/",
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es7", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "paths": {
+      "@configs/*": ["src/ts/configs/*"],
+      "@controllers/*": ["src/ts/controllers/*"]
+    }
+  },
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
