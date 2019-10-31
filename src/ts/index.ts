@@ -5,13 +5,17 @@ import "../styles.scss";
 // Require dependencies files
 import GameController from "src/ts/controllers/game-controller";
 import CanvasController from "@controllers/canvas-controller";
+import PlayerController from "@controllers/player-controller";
 
 
 
 
 // steps to initialize the game
-const Game = new GameController();
-Game.setupGame();
+GameController.setupGame();
+CanvasController.init();
 
-const Canvas = new CanvasController();
-Canvas.init();
+const Player = new PlayerController();
+Player.init();
+
+
+setInterval(CanvasController.draw, 60);
