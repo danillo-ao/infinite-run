@@ -10,10 +10,10 @@ export default class PlayerController {
 
   private playerAssets: TPlayerAssets = {
     running: {
-      source: "./src/assets/player/player-run.png",
-      frameW: 40,
+      source: "./src/assets/player/player-running.png",
+      frameW: 31,
       frameH: 37,
-      frames: 6
+      frames: 4
     },
     dash: null,
     jumping: null,
