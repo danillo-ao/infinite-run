@@ -1,6 +1,16 @@
 import Game from "@controllers/game.controller";
 
-export const renderParallax = (context, asset, speed, offsetX): number => {
+export const renderParallax = (
+  context: CanvasRenderingContext2D,
+  asset: HTMLImageElement,
+  speed: number,
+  offsetX: number,
+  offsetY: number,
+  targetW: number,
+  targetH: number,
+): number => {
+  context.clearRect(0, 0, Game.width, Game.height);
+
   for(let i = 0; i < 2; i++){
     context.drawImage(
       asset,
@@ -9,9 +19,9 @@ export const renderParallax = (context, asset, speed, offsetX): number => {
       asset.width,
       asset.height,
       (offsetX + (i * asset.width)),
-      0,
-      Game.width,
-      Game.height
+      offsetY,
+      targetW,
+      targetH
     );
   }
 

@@ -13,8 +13,15 @@ class Background extends GameObject{
   }
 
   public render = () => {
-    this.ctx.clearRect(0, 0, Game.width, Game.height);
-    this.x = renderParallax(this.ctx, this.asset, this.speed, this.x);
+    this.x = renderParallax(
+      this.ctx,
+      this.asset,
+      this.speed,
+      this.x,
+      0,
+      this.canvas.width,
+      this.canvas.height
+    );
   };
 
 }

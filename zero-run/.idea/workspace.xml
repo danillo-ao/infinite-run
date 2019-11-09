@@ -24,7 +24,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/values" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -38,6 +38,9 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\development\game-dev\zero-run\src\values" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\development\game-dev\zero-run\src\values" />
       <recent name="$PROJECT_DIR$" />
@@ -79,7 +82,7 @@
       <workItem from="1573173794222" duration="793000" />
       <workItem from="1573180047674" duration="6127000" />
       <workItem from="1573324537441" duration="4282000" />
-      <workItem from="1573338629093" duration="3519000" />
+      <workItem from="1573338629093" duration="4764000" />
     </task>
     <servers />
   </component>
