@@ -1,31 +1,14 @@
 import Game from "@controllers/game.controller";
+import GameObject from "@global/game-object.class";
 
 import * as playerAssets from "@values/player.assets.json";
 
-class Player {
+class Player extends GameObject{
 
-  private readonly asset: HTMLImageElement;
-  private canvas: HTMLCanvasElement;
-  private ctx: CanvasRenderingContext2D;
   private frame: number = 0;
 
   public constructor() {
-    // create canvas and context
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    // define canvas sizes
-    canvas.width = Game.width;
-    canvas.height = Game.height;
-    // append canvas to body
-    document.getElementById("body-root").appendChild(canvas);
-
-    // create a image player asset
-    const assetImage = new Image();
-    assetImage.src = playerAssets.path;
-
-    this.canvas = canvas;
-    this.ctx = ctx;
-    this.asset = assetImage;
+    super(playerAssets.path);
   } // constructor
 
   /**
