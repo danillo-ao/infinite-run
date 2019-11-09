@@ -14,7 +14,7 @@
     "paths": {
       "@controllers/*": ["src/ts/controllers/*"],
       "@interfaces/*": ["src/ts/interfaces/*"],
-      "@assets/*": ["src/ts/assets/*"]
+      "@values/*": ["src/values/*"]
     }
   },
   "include": [

@@ -1,6 +1,6 @@
 import Game from "@controllers/game.controller";
 
-import * as playerAssets from "@assets/player.assets.json";
+import * as playerAssets from "@values/player.assets.json";
 
 class Player {
 
@@ -35,6 +35,7 @@ class Player {
     const { running } = playerAssets;
     const frameX = (this.frame * running.width);
     const frameY = running.offsetTop;
+
     this.ctx.clearRect(0, 0, Game.width, Game.height);
     this.ctx.drawImage(
       this.asset,
@@ -47,6 +48,7 @@ class Player {
       running.width,
       running.height
     );
+
     this.frame = ((this.frame + 1) >= running.frames) ? 0 : (this.frame + 1);
   }; // renderRun
 
