@@ -6,30 +6,21 @@ import {renderParallax} from "@utils/render.util";
 
 class Floor extends GameObject {
   private x: number = 0;
-  private speed: number = 4;
+  private speed: number = 8;
 
   public constructor() {
     super(floorAsset.path);
   };
 
   public render = () => {
-
-    this.asset.crossOrigin = "*";
-    this.ctx.fillStyle = this.ctx.createPattern(this.asset, "repeat-x");
-    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
-    const imageURI = this.canvas.toDataURL("image/png");
-    const floorImage = new Image();
-    floorImage.src = imageURI;
-
     this.x = renderParallax(
       this.ctx,
-      floorImage,
+      this.asset,
       this.speed,
       this.x,
-      0,
+      (this.canvas.height - 20),
       this.canvas.width,
-      this.canvas.height,
+      this.asset.height,
     );
   };
 

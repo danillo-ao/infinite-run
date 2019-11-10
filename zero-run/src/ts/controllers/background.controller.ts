@@ -6,7 +6,7 @@ import {renderParallax} from "@utils/render.util";
 
 class Background extends GameObject{
   private x: number = 0;
-  private speed: number = 4;
+  private speed: number = 2;
 
   constructor() {
     super(backgroundAssets.path);
