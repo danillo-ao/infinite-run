@@ -7,7 +7,6 @@ import {renderParallax} from "@utils/render.util";
 
 class Floor extends GameObject {
   private x: number = 0;
-  private speed: number = 8;
 
   public constructor() {
     super(floorAsset.path);
@@ -17,7 +16,7 @@ class Floor extends GameObject {
     this.x = renderParallax(
       this.ctx,
       this.asset,
-      this.speed,
+      Game.miscSpeed,
       this.x,
       Game.floorPosition,
       this.asset.width,

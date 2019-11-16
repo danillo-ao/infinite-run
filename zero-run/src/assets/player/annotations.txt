@@ -1,2 +1,2 @@
-stand => 31 x 36 ----> 8 frames
-run => 47 x 46 ----> 10 frames
+run=> 31 x 36 -----> 8 frames
+jump => 29 x 43 ---> 10 frames (36 offset top)

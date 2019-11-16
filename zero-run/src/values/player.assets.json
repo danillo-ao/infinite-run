@@ -5,5 +5,11 @@
     "frames": 8,
     "height": 36,
     "width": 31
+  },
+  "jumping": {
+    "offsetTop": 36,
+    "frames": 10,
+    "height": 43,
+    "width": 29
   }
 }

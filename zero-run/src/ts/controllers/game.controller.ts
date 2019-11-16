@@ -8,12 +8,21 @@ class Game {
   public height:number = 300;
 
   public fps:number = (1000 / 30);
+  // floor settings
   public floorPosition = (this.height - 32);
-
+  public miscSpeed: number = 8;
   // game objects
   public player: Player;
   public background: Background;
   public floor: Floor;
+
+  /**
+   * Incrementa a velocidade de movimento do chão e dos inimigos
+   */
+  public increaseSpeed = () => {
+    const newSpeed = this.miscSpeed + 0.2;
+    this.miscSpeed = newSpeed > 25 ? 25 : newSpeed;
+  };
 
   // orchestra the render of layers
   public draw = () => {
@@ -29,6 +38,7 @@ class Game {
     this.player = new Player();
 
     setInterval(this.draw, this.fps);
+    setInterval(this.increaseSpeed, 1000);
   };
 
 }
