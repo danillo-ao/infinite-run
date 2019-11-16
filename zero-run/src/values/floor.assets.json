@@ -1,5 +1,5 @@
 {
-  "path": "src/assets/misc/tile-set-floor.png",
-  "width": 16,
+  "path": "src/assets/misc/floor.png",
+  "width": 300,
   "height": 32
 }

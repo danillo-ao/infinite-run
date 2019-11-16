@@ -27,7 +27,7 @@ class Player extends GameObject{
       running.width,
       running.height,
       30,
-      (Game.height - running.height - 20),
+      (Game.floorPosition - running.height),
       running.width,
       running.height
     );

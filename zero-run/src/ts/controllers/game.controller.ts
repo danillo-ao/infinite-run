@@ -6,7 +6,9 @@ class Game {
   // public game values
   public width:number = 500;
   public height:number = 300;
-  public speed:number = 70;
+  public fps:number = (1000 / 13);
+
+  public floorPosition = (this.height - 32);
 
   // game objects
   public player: Player;
@@ -27,7 +29,7 @@ class Game {
     this.floor = new Floor();
     this.player = new Player();
 
-    setInterval(this.draw, this.speed);
+    setInterval(this.draw, this.fps);
   };
 
 }

@@ -1,2 +1,2 @@
-stand => 42 x 44 ----> 4 frames
+stand => 31 x 36 ----> 8 frames
 run => 47 x 46 ----> 10 frames

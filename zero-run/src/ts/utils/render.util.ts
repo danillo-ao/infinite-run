@@ -11,7 +11,7 @@ export const renderParallax = (
 ): number => {
   context.clearRect(0, 0, Game.width, Game.height);
 
-  for(let i = 0; i < 2; i++){
+  for(let i = 0; i < 3; i++){
     context.drawImage(
       asset,
       0,
@@ -25,6 +25,6 @@ export const renderParallax = (
     );
   }
 
-  return ((offsetX * -1) >= Game.width) ? (speed * -1) : (offsetX - speed);
+  return ((offsetX * -1) >= asset.width) ? (speed * -1) : (offsetX - speed);
 };
 

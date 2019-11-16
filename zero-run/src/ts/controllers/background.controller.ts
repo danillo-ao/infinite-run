@@ -19,7 +19,7 @@ class Background extends GameObject{
       this.speed,
       this.x,
       0,
-      this.canvas.width,
+      this.asset.width,
       this.canvas.height
     );
   };

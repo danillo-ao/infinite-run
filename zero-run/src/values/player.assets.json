@@ -1,15 +1,9 @@
 {
   "path": "src/assets/player/player.png",
   "running": {
-    "offsetTop": 44,
-    "frames": 10,
-    "height": 46,
-    "width": 47
-  },
-  "stand": {
     "offsetTop": 0,
-    "frames": 4,
-    "height": 44,
-    "width": 42
+    "frames": 8,
+    "height": 36,
+    "width": 31
   }
 }
