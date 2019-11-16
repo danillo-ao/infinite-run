@@ -6,8 +6,8 @@ class Game {
   // public game values
   public width:number = 500;
   public height:number = 300;
-  public fps:number = (1000 / 13);
 
+  public fps:number = (1000 / 30);
   public floorPosition = (this.height - 32);
 
   // game objects
@@ -22,7 +22,6 @@ class Game {
     this.player.render();
     this.floor.render();
   };
-
   // setup the game and create a loop interval
   public setup = () => {
     this.background = new Background();
