@@ -14,12 +14,13 @@ class Player extends GameObject{
 
   private gravity: number = 6;
   private gravitySpeed: number = this.gravity;
-  private jumpForce: number = 5.8;
+  private jumpForce: number = 6;
 
   public constructor() {
     super(playerAssets.path);
 
     document.addEventListener("keydown", this.handleControl);
+    document.addEventListener("touchstart", this.jump);
   } // constructor
 
   /**
@@ -27,20 +28,36 @@ class Player extends GameObject{
    * @param event
    */
   private handleControl = (event: KeyboardEvent): void => {
-    if (event.keyCode === 38 && this.state !== CPlayerState.jumping) {
+    if (event.keyCode === 38 || event.keyCode === 32) {
       this.jump();
     }
 
-
+    if (event.keyCode === 40) {
+      this.roll();
+    }
   };  // handleJump
+
+  /**
+   * Aplica o rolamento do personagem, caso ele esteja no chão, caso esteja com o estado "pulando"
+   * reseta o peso da gravidade para que ele caia mais rapido
+   */
+  public roll = () => {
+    if (this.state === CPlayerState.jumping) {
+      // quando o player estiver pulando, reseta o peso da gravidade
+      this.gravitySpeed = this.gravity;
+    } else if (this.state === CPlayerState.running) {
+      // aplica o rolamento
+    }
+  };
 
   /**
    * Aplica o pulo
    */
   public jump = () => {
-    this.state = CPlayerState.jumping;
-    this.gravitySpeed = ((this.gravity * this.jumpForce) * -1);
-    setTimeout(() => { this.gravitySpeed = this.gravity; }, 300);
+    if (this.state !== CPlayerState.jumping) {
+      this.state = CPlayerState.jumping;
+      this.gravitySpeed = ((this.gravity * this.jumpForce) * -1);
+    }
   }; // jump
 
   /**

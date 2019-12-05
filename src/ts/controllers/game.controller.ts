@@ -7,7 +7,7 @@ class Game {
   public width:number = 500;
   public height:number = 300;
 
-  public fps:number = (1000 / 30);
+  public fps:number = (1000 / 30); // <~ divisor is the fps
   // floor settings
   public floorPosition = (this.height - 32);
   public miscSpeed: number = 8;
@@ -20,7 +20,7 @@ class Game {
    * Incrementa a velocidade de movimento do chão e dos inimigos
    */
   public increaseSpeed = () => {
-    const newSpeed = this.miscSpeed + 0.2;
+    const newSpeed = this.miscSpeed + 0.1;
     this.miscSpeed = newSpeed > 25 ? 25 : newSpeed;
   };
 
