@@ -12,7 +12,7 @@ class Player extends GameObject{
   private y: number = (Game.floorPosition - playerAssets.running.height);
   private x: number = 30;
 
-  private gravity: number = 6;
+  private gravity: number = 5;
   private gravitySpeed: number = this.gravity;
   private jumpForce: number = 6;
 
@@ -27,7 +27,7 @@ class Player extends GameObject{
   } // constructor
 
   /**
-   * Função utilizada controlar os movimentos do player
+   * Function used to controle the player movements
    * @param event
    */
   private handleControlDown = (event: KeyboardEvent): void => {
@@ -41,7 +41,7 @@ class Player extends GameObject{
   };  // handleJump
 
   /**
-   * Função utilizada para controlar os movimentos do player quando Soltar uma tecla
+   * Function used to control the player movements when they drop the keyboard key
    * @param event
    */
   private handleControlUp = (event: KeyboardEvent): void => {
@@ -51,8 +51,8 @@ class Player extends GameObject{
   };
 
   /**
-   * Aplica o rolamento do personagem, caso ele esteja no chão, caso esteja com o estado "pulando"
-   * reseta o peso da gravidade para que ele caia mais rapido
+   * Apply the rolling of player, if they're in the ground. If they're jumping
+   * reset the weight of the gravity so hell fell faster
    */
   public roll = () => {
     if (this.state === CPlayerState.jumping) {
@@ -65,7 +65,7 @@ class Player extends GameObject{
   };
 
   /**
-   * Aplica o pulo
+   * apply the jump
    */
   public jump = () => {
     if (this.state !== CPlayerState.jumping) {
@@ -99,6 +99,7 @@ class Player extends GameObject{
     const floor = (Game.floorPosition - assetState.height);
     // increment the gravity speed
     this.gravitySpeed += this.gravity;
+
     // Calculate the new gravity,
     let newGravity = (this.y + this.gravitySpeed);
     if (newGravity >= floor){
@@ -116,7 +117,6 @@ class Player extends GameObject{
    * Render the player on the canvas
    */
   public render = () => {
-    // trigger activated when the image of player assets has loaded
     this.renderPlayerAnimation();
   }; // render
 
