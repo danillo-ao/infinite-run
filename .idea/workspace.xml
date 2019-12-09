@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7f73be-9654-47a0-bba1-60fba085f6d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/background/parallax.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/background/parallax.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ts/controllers/player.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/player.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/controllers/game.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/game.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/global/game-object.class.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/global/game-object.class.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +93,7 @@
       <workItem from="1573932330826" duration="3004000" />
       <workItem from="1575518521445" duration="1490000" />
       <workItem from="1575863732445" duration="110000" />
-      <workItem from="1575863859849" duration="6079000" />
+      <workItem from="1575863859849" duration="8272000" />
     </task>
     <servers />
   </component>

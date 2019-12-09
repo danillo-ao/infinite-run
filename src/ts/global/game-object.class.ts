@@ -14,7 +14,7 @@ class GameObject {
     canvas.width = Game.width;
     canvas.height = Game.height;
     // append canvas to body
-    document.getElementById("body-root").appendChild(canvas);
+    document.getElementById(Game.bodyId).appendChild(canvas);
     // create a image player asset
     const assetImage = new Image();
     assetImage.src = AssetPath;

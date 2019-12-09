@@ -1,5 +1,9 @@
 /* IMPORT FONT_FACES */
 @font-face {
+  font-family: BitFont;
+  src: url("assets/fonts/VeniceClassic.ttf");
+}
+@font-face {
   font-family: Roboto;
   src: url("assets/fonts/Roboto-Regular.ttf");
 }
@@ -53,4 +57,33 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
   }
+}
+
+.hud-content {
+  position: relative;
+}
+
+.score-content {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-family: BitFont;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: #fff;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+
+}
+
+.coins-content {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-family: BitFont;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 20px;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
