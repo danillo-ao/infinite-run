@@ -4,12 +4,21 @@
     "offsetTop": 0,
     "frames": 8,
     "height": 36,
-    "width": 31
+    "width": 31,
+    "repeatFrom": 0
   },
   "jumping": {
     "offsetTop": 36,
     "frames": 10,
     "height": 43,
-    "width": 29
+    "width": 29,
+    "repeatFrom": 0
+  },
+  "rolling": {
+    "offsetTop": 79,
+    "frames": 18,
+    "width": 30,
+    "height": 30,
+    "repeatFrom": 2
   }
 }

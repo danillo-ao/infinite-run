@@ -4,8 +4,8 @@ import Floor from "@controllers/floor.controller";
 
 class Game {
   // public game values
-  public width:number = 500;
-  public height:number = 300;
+  public width:number = window.innerWidth < 500 ? window.innerWidth : 500;
+  public height:number = window.innerWidth < 300 ? window.innerWidth : 300;
 
   public fps:number = (1000 / 30); // <~ divisor is the fps
   // floor settings

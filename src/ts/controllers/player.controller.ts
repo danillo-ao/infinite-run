@@ -19,15 +19,18 @@ class Player extends GameObject{
   public constructor() {
     super(playerAssets.path);
 
-    document.addEventListener("keydown", this.handleControl);
+    document.addEventListener("keydown", this.handleControlDown);
+    document.addEventListener("keyup", this.handleControlUp);
+
     document.addEventListener("touchstart", this.jump);
+    document.addEventListener("click", this.jump);
   } // constructor
 
   /**
    * Função utilizada controlar os movimentos do player
    * @param event
    */
-  private handleControl = (event: KeyboardEvent): void => {
+  private handleControlDown = (event: KeyboardEvent): void => {
     if (event.keyCode === 38 || event.keyCode === 32) {
       this.jump();
     }
@@ -36,6 +39,16 @@ class Player extends GameObject{
       this.roll();
     }
   };  // handleJump
+
+  /**
+   * Função utilizada para controlar os movimentos do player quando Soltar uma tecla
+   * @param event
+   */
+  private handleControlUp = (event: KeyboardEvent): void => {
+    if (event.keyCode === 40 && this.state === CPlayerState.rolling) {
+      this.state = CPlayerState.running;
+    }
+  };
 
   /**
    * Aplica o rolamento do personagem, caso ele esteja no chão, caso esteja com o estado "pulando"
@@ -47,6 +60,7 @@ class Player extends GameObject{
       this.gravitySpeed = this.gravity;
     } else if (this.state === CPlayerState.running) {
       // aplica o rolamento
+      this.state = CPlayerState.rolling;
     }
   };
 
@@ -89,11 +103,13 @@ class Player extends GameObject{
     let newGravity = (this.y + this.gravitySpeed);
     if (newGravity >= floor){
       newGravity = floor;
-      this.state = CPlayerState.running;
+      if (this.state === CPlayerState.jumping) {
+        this.state = CPlayerState.running;
+      }
     }
 
     this.y = newGravity;
-    this.frame = ((this.frame + 1) >= assetState.frames) ? 0 : (this.frame + 1);
+    this.frame = ((this.frame + 1) >= assetState.frames) ? assetState.repeatFrom : (this.frame + 1);
   }; // renderRun
 
   /**
