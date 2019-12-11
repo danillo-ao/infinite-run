@@ -27,4 +27,3 @@ export const renderParallax = (
 
   return ((offsetX * -1) >= asset.width) ? (speed * -1) : (offsetX - speed);
 };
-

@@ -2,6 +2,7 @@ import Player from "@controllers/player.controller";
 import Background from "@controllers/background.controller";
 import Floor from "@controllers/floor.controller";
 import Hud from "@controllers/hud.controller";
+import Enemy from "@controllers/enemy.controller";
 
 class Game {
   // public html values
@@ -20,6 +21,7 @@ class Game {
   public player: Player;
   public background: Background;
   public floor: Floor;
+  public enemies: Enemy;
   public hud: Hud;
 
   /**
@@ -32,20 +34,24 @@ class Game {
 
   // orchestra the render of layers
   public draw = () => {
-    this.score += 0.5;
+    this.score += 0.4;
     // draw the game/
     this.background.render();
     this.player.render();
     this.floor.render();
+    this.enemies.render();
 
     this.hud.countScore();
   };
   // setup the game and create a loop interval
   public setup = () => {
+    // setup of controllers
     this.background = new Background();
     this.floor = new Floor();
+    this.enemies = new Enemy();
     this.player = new Player();
 
+    // setup of HUD
     this.hud = new Hud();
 
     setInterval(this.draw, this.fps);
