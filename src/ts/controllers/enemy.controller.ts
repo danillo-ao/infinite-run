@@ -54,7 +54,7 @@ class Enemy extends GameObject {
     const pmx = px + player.w;
     const pmy = py + player.h;
 
-    const collisionX = (getBetweenOrEqual((px + 10), ex, emx) || getBetweenOrEqual(pmx, ex, emx));
+    const collisionX = (getBetweenOrEqual(px, ex, (emx - 10)) || getBetweenOrEqual(pmx, ex, emx));
     const collisionY = (getBetweenOrEqual(py, ey, emy) || getBetweenOrEqual((pmy - 5), ey, emy));
 
     if (collisionX && collisionY) {
