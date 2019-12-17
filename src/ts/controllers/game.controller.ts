@@ -5,6 +5,8 @@ import Hud from "@controllers/hud.controller";
 import Enemy from "@controllers/enemy.controller";
 
 class Game {
+  // dev triggers
+  public showCollisors: boolean = true;
   // public html values
   public bodyId: string = "body-root";
   // public game values
@@ -17,6 +19,9 @@ class Game {
   // floor settings
   public floorPosition = (this.height - 32);
   public miscSpeed: number = 8;
+  // game states
+  private freeze: boolean = false;
+  private gameover: boolean = false;
   // game objects
   public player: Player;
   public background: Background;
@@ -32,16 +37,40 @@ class Game {
     this.miscSpeed = newSpeed > 25 ? 25 : newSpeed;
   };
 
+  /**
+   * Set the gameover state for the game. End the game
+   */
+  public gameOver = () : void => {
+    this.gameover = true;
+  }; // freezeGame
+
+  /**
+   * Set the game as freezed
+   */
+  public freezeGame = () : void => {
+    this.freeze = true;
+  }; // freezeGame
+
+  /**
+   * Unset the freeze state of the game
+   */
+  public unfreezeGame = (): void => {
+    this.freeze = false;
+  }; // unfreezeGame
+
   // orchestra the render of layers
   public draw = () => {
-    this.score += 0.4;
-    // draw the game/
-    this.background.render();
-    this.player.render();
-    this.floor.render();
-    this.enemies.render();
+    // Verify if game isn't freezed
+    if (!this.freeze && !this.gameover) {
+      this.score += 0.4;
+      // draw the game/
+      this.background.render();
+      this.player.render();
+      this.floor.render();
+      this.enemies.render();
 
-    this.hud.countScore();
+      this.hud.countScore();
+    }
   };
   // setup the game and create a loop interval
   public setup = () => {
@@ -55,6 +84,7 @@ class Game {
     this.hud = new Hud();
 
     setInterval(this.draw, this.fps);
+    // setInterval(this.freezeGame, 3000);
     setInterval(this.increaseSpeed, 1000);
   };
 

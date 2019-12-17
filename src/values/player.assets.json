@@ -9,7 +9,7 @@
   },
   "jumping": {
     "offsetTop": 36,
-    "frames": 10,
+    "frames": 9,
     "height": 43,
     "width": 29,
     "repeatFrom": 0

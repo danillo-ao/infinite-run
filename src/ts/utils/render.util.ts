@@ -23,6 +23,14 @@ export const renderParallax = (
       targetW,
       targetH
     );
+
+    if (Game.showCollisors) {
+      context.beginPath();
+      context.strokeStyle = "#FF0000";
+      context.rect((offsetX + (i * asset.width)), offsetY, targetW, targetH);
+      context.stroke();
+    }
+
   }
 
   return ((offsetX * -1) >= asset.width) ? (speed * -1) : (offsetX - speed);

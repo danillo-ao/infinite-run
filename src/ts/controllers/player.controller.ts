@@ -9,12 +9,14 @@ class Player extends GameObject{
   private frame: number = 0;
   private state: TPlayerState = CPlayerState.running;
 
-  private y: number = (Game.floorPosition - playerAssets.running.height);
-  private x: number = 30;
+  public y: number = (Game.floorPosition - playerAssets.running.height);
+  public x: number = 30;
+  public w: number = 0;
+  public h: number = 0;
 
   private gravity: number = 5;
   private gravitySpeed: number = this.gravity;
-  private jumpForce: number = 6;
+  private jumpForce: number = 7;
 
   public constructor() {
     super(playerAssets.path);
@@ -82,6 +84,9 @@ class Player extends GameObject{
     const frameX = (this.frame * assetState.width);
     const frameY = assetState.offsetTop;
 
+    this.w = assetState.width;
+    this.h = assetState.height;
+
     this.ctx.clearRect(0, 0, Game.width, Game.height);
     this.ctx.drawImage(
       this.asset,
@@ -94,6 +99,13 @@ class Player extends GameObject{
       assetState.width,
       assetState.height
     );
+
+    if (Game.showCollisors) {
+      this.ctx.beginPath();
+      this.ctx.strokeStyle = "#FF0000";
+      this.ctx.rect(this.x, this.y, assetState.width, assetState.height);
+      this.ctx.stroke();
+    }
 
     // define the floor coords
     const floor = (Game.floorPosition - assetState.height);

@@ -7,12 +7,15 @@ import {IEnemy} from "@interfaces/enemies.interfaces";
 // import constants
 import {TEnemyType} from "@constants/enemies.types";
 // import utils
-import {Random} from "@utils/func.util";
+import {getBetweenOrEqual, Random} from "@utils/func.util";
 import * as playerAssets from "@values/player.assets.json";
 
 
 class Enemy extends GameObject {
 
+  // dev triggers
+  private unlimitedEnemies: boolean = true;
+  private enemiesLimit: number = 6;
   // private values
   private interval: number;
 
@@ -35,6 +38,34 @@ class Enemy extends GameObject {
   }
 
   /**
+   * Validate the position of layer, to detect some colision with the enemy
+   * @param enemy
+   */
+  private handleCollider =  (enemy: IEnemy): void => {
+    const player = Game.player;
+
+    const ex = enemy.x;
+    const ey = enemy.y;
+    const emx = ex + enemy.w;
+    const emy = ey + enemy.h;
+
+    const px = player.x;
+    const py = player.y;
+    const pmx = px + player.w;
+    const pmy = py + player.h;
+
+    const collisionX = (getBetweenOrEqual(px, ex, emx) || getBetweenOrEqual(pmx, ex, emx));
+    const collisionY = (getBetweenOrEqual(py, ey, emy) || getBetweenOrEqual((pmy - 5), ey, emy));
+
+    if (collisionX && collisionY) {
+      setTimeout(() => {
+        Game.gameOver();
+      }, Game.fps);
+    }
+
+  }; // handleCollider
+
+  /**
    * Add an new enemy to the game scene
    * @param enemyType
    */
@@ -48,7 +79,10 @@ class Enemy extends GameObject {
       frame: 0,
       type: enemyType
     };
-    this.enemies.push(enemy);
+
+    if (this.unlimitedEnemies || !this.unlimitedEnemies && this.enemies.length < this.enemiesLimit){
+      this.enemies.push(enemy);
+    }
   }; // newEnemy
 
   /**
@@ -73,6 +107,15 @@ class Enemy extends GameObject {
         enemy.w,
         enemy.h
       );
+
+      this.handleCollider(enemy);
+
+      if (Game.showCollisors) {
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "#FF0000";
+        this.ctx.rect(enemy.x, enemy.y, enemy.w, enemy.h);
+        this.ctx.stroke();
+      }
 
       enemy.frame = ((enemy.frame + 1) >= enemyValues.frames) ? enemyValues.repeatFrom : (enemy.frame + 1);
       enemy.x -= Game.miscSpeed;
