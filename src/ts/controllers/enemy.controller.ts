@@ -60,6 +60,7 @@ class Enemy extends GameObject {
     if (collisionX && collisionY) {
       setTimeout(() => {
         Game.gameOver();
+        Game.hud.showGameOver();
       }, Game.fps);
     }
 

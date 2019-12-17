@@ -26,5 +26,8 @@
   "exclude": [
     "node_modules",
     "dist"
-  ]
+  ],
+  "rules": {
+    "quotemark": [true, "double", "avoid-escape"]
+  }
 }
