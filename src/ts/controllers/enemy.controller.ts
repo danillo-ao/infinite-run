@@ -39,23 +39,10 @@ class Enemy extends GameObject {
 
   /**
    * Validate the position of layer, to detect some colision with the enemy
-   * @param enemy
    */
-  private handleCollider =  (enemy: IEnemy): void => {
+  private handleCollider =  (): void => {
     const player = Game.player;
-    /* const collision: boolean = getCollision(
-      enemy.x,
-      enemy.y,
-      enemy.w,
-      enemy.h,
-      player.x,
-      player.y,
-      player.w,
-      player.h,
-      3
-    ); */
-
-    const collisionPixel = collisionByPixel(this.canvas, player.canvas);
+    const collisionPixel = collisionByPixel(this.canvas, player.canvas, player.x, player.y, player.w, player.h);
 
     if (collisionPixel) {
       Game.gameOver();
@@ -107,8 +94,6 @@ class Enemy extends GameObject {
         enemy.h
       );
 
-      this.handleCollider(enemy);
-
       if (Game.showCollisors) {
         this.ctx.beginPath();
         this.ctx.strokeStyle = "#FF0000";
@@ -124,6 +109,7 @@ class Enemy extends GameObject {
     });
 
     this.enemies = enemies.filter((enemy: IEnemy) => !!enemy);;
+    this.handleCollider();
   }; // renderEnemies
 
   private setupEnemies = (interval: number): void => {

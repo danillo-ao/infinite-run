@@ -111,11 +111,22 @@ export function getPixelMap (imageData: ImageData): number[] {
  * If just ONE pixel collide with the another canvas, this function will return true.
  * @param canvas1
  * @param canvas2
+ * @param x
+ * @param y
+ * @param w
+ * @param h
  */
-export function collisionByPixel (canvas1: HTMLCanvasElement, canvas2: HTMLCanvasElement): boolean {
+export function collisionByPixel (
+  canvas1: HTMLCanvasElement,
+  canvas2: HTMLCanvasElement,
+  x: number,
+  y: number,
+  w: number,
+  h: number
+): boolean {
   // get canvas image data
-  const data = canvas1.getContext("2d").getImageData(0, 0, canvas1.width, canvas1.height);
-  const data2 = canvas2.getContext("2d").getImageData(0, 0, canvas2.width, canvas2.height);
+  const data = canvas1.getContext("2d").getImageData(x, y, w, h);
+  const data2 = canvas2.getContext("2d").getImageData(x, y, w, h);
 
   // get the map of pixels
   const map1 = getPixelMap(data);
