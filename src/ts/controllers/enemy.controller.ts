@@ -21,8 +21,8 @@ class Enemy extends GameObject {
 
   // public values
   public enemies: IEnemy[] = [];
-  public minSeconds: number = 1;
-  public maxSeconds: number = 2;
+  public minSeconds: number = 0.5;
+  public maxSeconds: number = 1.2;
 
   /**
    * Return an random enemy type

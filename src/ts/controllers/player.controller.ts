@@ -16,7 +16,7 @@ class Player extends GameObject{
 
   private gravity: number = 5;
   private gravitySpeed: number = this.gravity;
-  private jumpForce: number = 7;
+  private jumpForce: number = 6.4;
 
   public constructor() {
     super(playerAssets.path);

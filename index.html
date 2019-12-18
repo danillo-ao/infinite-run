@@ -9,10 +9,21 @@
     <meta http-equiv="content-language" content="pt-br">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="dist/main.css?version=108">
   </head>
   <body>
     <div id="body-root"></div>
-    <script type="text/javascript" src="dist/main.js?version=108"></script>
+
+    <script>
+      const linkStyle = document.createElement("link");
+      linkStyle.rel = "stylesheet";
+      linkStyle.href = `dist/main.css?version=${Date.now()}`;
+      const linkScript = document.createElement("script");
+      linkScript.type = "text/javascript";
+      linkScript.src = `dist/main.js?version=${Date.now()}`;
+
+      document.head.append(linkStyle);
+      document.body.append(linkScript);
+    </script>
+
   </body>
 </html>
