@@ -7,7 +7,7 @@ import {IEnemy} from "@interfaces/enemies.interfaces";
 // import constants
 import {TEnemyType} from "@constants/enemies.types";
 // import utils
-import {getBetweenOrEqual, Random} from "@utils/func.util";
+import {collisionByPixel, getBetweenOrEqual, getCollision, Random} from "@utils/func.util";
 import * as playerAssets from "@values/player.assets.json";
 
 
@@ -43,25 +43,23 @@ class Enemy extends GameObject {
    */
   private handleCollider =  (enemy: IEnemy): void => {
     const player = Game.player;
+    /* const collision: boolean = getCollision(
+      enemy.x,
+      enemy.y,
+      enemy.w,
+      enemy.h,
+      player.x,
+      player.y,
+      player.w,
+      player.h,
+      3
+    ); */
 
-    const ex = enemy.x;
-    const ey = enemy.y;
-    const emx = ex + enemy.w;
-    const emy = ey + enemy.h;
+    const collisionPixel = collisionByPixel(this.canvas, player.canvas);
 
-    const px = player.x;
-    const py = player.y;
-    const pmx = px + player.w;
-    const pmy = py + player.h;
-
-    const collisionX = (getBetweenOrEqual(px, ex, (emx - 10)) || getBetweenOrEqual(pmx, ex, emx));
-    const collisionY = (getBetweenOrEqual(py, ey, emy) || getBetweenOrEqual((pmy - 5), ey, emy));
-
-    if (collisionX && collisionY) {
-      setTimeout(() => {
-        Game.gameOver();
-        Game.hud.showGameOver();
-      }, Game.fps);
+    if (collisionPixel) {
+      Game.gameOver();
+      Game.hud.showGameOver();
     }
 
   }; // handleCollider
@@ -92,7 +90,7 @@ class Enemy extends GameObject {
   public render = (): void => {
     this.ctx.clearRect(0, 0, Game.width, Game.height);
 
-    this.enemies = this.enemies.map((enemy: IEnemy) => {
+    const enemies: IEnemy[] = this.enemies.map((enemy: IEnemy) => {
       const enemyValues = enemiesAssets[enemy.type];
       const frameX = (enemy.frame * enemy.w);
       const frameY = enemyValues.offsetY;
@@ -120,9 +118,12 @@ class Enemy extends GameObject {
 
       enemy.frame = ((enemy.frame + 1) >= enemyValues.frames) ? enemyValues.repeatFrom : (enemy.frame + 1);
       enemy.x -= Game.miscSpeed;
+
+      if (enemy.x + enemy.w < 0){ return null}
       return enemy;
     });
 
+    this.enemies = enemies.filter((enemy: IEnemy) => !!enemy);;
   }; // renderEnemies
 
   private setupEnemies = (interval: number): void => {

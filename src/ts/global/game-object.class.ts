@@ -18,6 +18,8 @@ class GameObject {
     // create a image player asset
     const assetImage = new Image();
     assetImage.src = AssetPath;
+    assetImage.onload = () => {};
+    assetImage.crossOrigin="anonymous";
 
     this.canvas = canvas;
     this.ctx = ctx;

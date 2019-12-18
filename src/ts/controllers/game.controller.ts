@@ -6,7 +6,7 @@ import Enemy from "@controllers/enemy.controller";
 
 class Game {
   // dev triggers
-  public showCollisors: boolean = true;
+  public showCollisors: boolean = false;
   // public html values
   public bodyId: string = "body-root";
   // public game values
