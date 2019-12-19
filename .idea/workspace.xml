@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7f73be-9654-47a0-bba1-60fba085f6d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/sound/coin9.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ts/controllers/player.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/player.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ts/controllers/sound.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/sound.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/VeniceClassic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/controllers/hud.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/hud.controller.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +100,7 @@
       <workItem from="1576636148380" duration="7526000" />
       <workItem from="1576645764484" duration="350000" />
       <workItem from="1576722985476" duration="1009000" />
-      <workItem from="1576724482685" duration="8828000" />
+      <workItem from="1576724482685" duration="9816000" />
     </task>
     <servers />
   </component>

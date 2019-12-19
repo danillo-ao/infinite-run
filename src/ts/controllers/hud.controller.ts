@@ -26,7 +26,7 @@ class Hud {
     CoinsContent.classList.add("coins-content");
 
     // texts append
-    GameOverContent.textContent = "Fim de jogo!";
+    GameOverContent.textContent = "Game Over!";
     ScoreContent.textContent = `${Game.score}`;
     CoinsContent.textContent = `${Game.coinsBalance}`;
 

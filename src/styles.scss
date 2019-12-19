@@ -1,7 +1,7 @@
 /* IMPORT FONT_FACES */
 @font-face {
   font-family: BitFont;
-  src: url("assets/fonts/VeniceClassic.ttf");
+  src: url("assets/fonts/bit-font.ttf");
 }
 @font-face {
   font-family: Roboto;
@@ -74,7 +74,7 @@ body {
   font-family: BitFont;
   margin: 0;
   padding: 0;
-  font-size: 20px;
+  font-size: 15px;
   color: #fff;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 
@@ -88,7 +88,7 @@ body {
   margin: 0;
   padding: 0;
   color: #fff;
-  font-size: 20px;
+  font-size: 15px;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
@@ -102,7 +102,7 @@ body {
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 50px;
+  font-size: 30px;
   background-color: rgba(0,0,0,0.4);
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
   font-family: BitFont;
