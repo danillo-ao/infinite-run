@@ -7,8 +7,8 @@ import {IEnemy} from "@interfaces/enemies.interfaces";
 // import constants
 import {TEnemyType} from "@constants/enemies.types";
 // import utils
-import {collisionByPixel, getBetweenOrEqual, getCollision, Random} from "@utils/func.util";
-import * as playerAssets from "@values/player.assets.json";
+import {collisionByPixel, Random} from "@utils/func.util";
+import {renderCollisors} from '@utils/render.util';
 
 
 class Enemy extends GameObject {
@@ -94,33 +94,25 @@ class Enemy extends GameObject {
         enemy.h
       );
 
-      if (Game.showCollisors) {
-        this.ctx.beginPath();
-        this.ctx.strokeStyle = "#FF0000";
-        this.ctx.rect(enemy.x, enemy.y, enemy.w, enemy.h);
-        this.ctx.stroke();
-      }
-
+      renderCollisors(this.ctx, enemy.x, enemy.y, enemy.w, enemy.h);
       enemy.frame = ((enemy.frame + 1) >= enemyValues.frames) ? enemyValues.repeatFrom : (enemy.frame + 1);
       enemy.x -= Game.miscSpeed;
 
-      if (enemy.x + enemy.w < 0){ return null}
+      if (enemy.x + enemy.w < 0){ return null; }
       return enemy;
     });
 
-    this.enemies = enemies.filter((enemy: IEnemy) => !!enemy);;
+    this.enemies = enemies.filter((enemy: IEnemy) => !!enemy);
     this.handleCollider();
-  }; // renderEnemies
+  }; // render
 
   private setupEnemies = (interval: number): void => {
-
     this.interval = setInterval(() => {
       clearInterval(this.interval);
       this.newEnemy(Enemy.randomEnemyType());
       const intervalTime = Random(this.minSeconds, this.maxSeconds);
       this.setupEnemies(intervalTime * 1000);
     }, interval);
-
   }; // setupEnemies
 }
 

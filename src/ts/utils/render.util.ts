@@ -24,14 +24,18 @@ export const renderParallax = (
       targetH
     );
 
-    if (Game.showCollisors) {
-      context.beginPath();
-      context.strokeStyle = "#FF0000";
-      context.rect((offsetX + (i * asset.width)), offsetY, targetW, targetH);
-      context.stroke();
-    }
-
+    renderCollisors(context, (offsetX + (i * asset.width)), offsetY, targetW, targetH);
   }
 
   return ((offsetX * -1) >= asset.width) ? (speed * -1) : (offsetX - speed);
+}; // renderParallax
+
+
+export const renderCollisors = (ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number): void => {
+  if (Game.showCollisors) {
+    ctx.beginPath();
+    ctx.strokeStyle = "#FF0000";
+    ctx.rect(x, y, w, h);
+    ctx.stroke();
+  }
 };

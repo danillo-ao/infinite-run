@@ -3,6 +3,7 @@ import Background from "@controllers/background.controller";
 import Floor from "@controllers/floor.controller";
 import Hud from "@controllers/hud.controller";
 import Enemy from "@controllers/enemy.controller";
+import Coins from '@controllers/coins.controller';
 
 class Game {
   // dev triggers
@@ -15,7 +16,7 @@ class Game {
   public fps:number = (1000 / 30); // <~ divisor is the fps
   // public values
   public score: number = 0;
-  public coins: number = 0;
+  public coinsBalance: number = 0;
   // floor settings
   public floorPosition = (this.height - 32);
   public miscSpeed: number = 8;
@@ -28,6 +29,7 @@ class Game {
   public floor: Floor;
   public enemies: Enemy;
   public hud: Hud;
+  public coins: Coins;
 
   /**
    * Incrementa a velocidade de movimento do chão e dos inimigos
@@ -68,6 +70,7 @@ class Game {
       this.player.render();
       this.floor.render();
       this.enemies.render();
+      this.coins.render();
 
       this.hud.countScore();
     }
@@ -78,6 +81,7 @@ class Game {
     this.background = new Background();
     this.floor = new Floor();
     this.enemies = new Enemy();
+    this.coins = new Coins();
     this.player = new Player();
 
     // setup of HUD

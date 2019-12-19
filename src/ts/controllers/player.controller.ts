@@ -3,6 +3,7 @@ import GameObject from "@global/game-object.class";
 import {CPlayerState, TPlayerState} from "@constants/player.types";
 
 import * as playerAssets from "@values/player.assets.json";
+import {renderCollisors} from '@utils/render.util';
 
 class Player extends GameObject{
 
@@ -100,13 +101,7 @@ class Player extends GameObject{
       assetState.height
     );
 
-    if (Game.showCollisors) {
-      this.ctx.beginPath();
-      this.ctx.strokeStyle = "#FF0000";
-      this.ctx.rect(this.x, this.y, assetState.width, assetState.height);
-      this.ctx.stroke();
-    }
-
+    renderCollisors(this.ctx, this.x, this.y, assetState.width, assetState.height);
     // define the floor coords
     const floor = (Game.floorPosition - assetState.height);
     // increment the gravity speed

@@ -1,0 +1,10 @@
+{
+  "path": "src/assets/misc/coins.png",
+  "spinning": {
+    "frames": 12,
+    "width": 12,
+    "height": 16,
+    "repeatFrom": 0,
+    "offsetY": 0
+  }
+}

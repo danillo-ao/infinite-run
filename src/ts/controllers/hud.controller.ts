@@ -28,7 +28,7 @@ class Hud {
     // texts append
     GameOverContent.textContent = "Fim de jogo!";
     ScoreContent.textContent = `${Game.score}`;
-    CoinsContent.textContent = `${Game.coins}`;
+    CoinsContent.textContent = `${Game.coinsBalance}`;
 
     // append to doc
     HudContent.appendChild(ScoreContent);
