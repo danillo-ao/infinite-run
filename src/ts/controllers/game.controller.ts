@@ -4,6 +4,7 @@ import Floor from "@controllers/floor.controller";
 import Hud from "@controllers/hud.controller";
 import Enemy from "@controllers/enemy.controller";
 import Coins from '@controllers/coins.controller';
+import Sound from '@controllers/sound.controller';
 
 class Game {
   // dev triggers
@@ -29,6 +30,7 @@ class Game {
   public floor: Floor;
   public enemies: Enemy;
   public hud: Hud;
+  public sound: Sound;
   public coins: Coins;
 
   /**
@@ -38,6 +40,13 @@ class Game {
     const newSpeed = this.miscSpeed + 0.1;
     this.miscSpeed = newSpeed > 25 ? 25 : newSpeed;
   };
+
+  /**
+   * Add a coin to balance
+   */
+  public addCointBalance = (): void => {
+    this.coinsBalance++;
+  }; // addCointBalance
 
   /**
    * Set the gameover state for the game. End the game
@@ -86,6 +95,7 @@ class Game {
 
     // setup of HUD
     this.hud = new Hud();
+    this.sound = new Sound();
 
     setInterval(this.draw, this.fps);
     // setInterval(this.freezeGame, 3000);

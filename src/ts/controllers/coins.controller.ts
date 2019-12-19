@@ -4,7 +4,7 @@ import * as coinsAssets from "@values/coins.assets.json";
 
 import {ICoin, ICoinsPrefab} from '@interfaces/coins.interface';
 import {TCoinsPrefabs, TCoinsPrefabsTypes, TCoinsState} from '@constants/coins.types';
-import {Random} from '@utils/func.util';
+import {collisionByPixel, Random} from '@utils/func.util';
 import {renderCollisors} from '@utils/render.util';
 
 class Coins extends GameObject {
@@ -34,6 +34,20 @@ class Coins extends GameObject {
     const types: TCoinsPrefabsTypes[] = ["fivebyone", "fivebytwo", "fivebythree", "threebythree"];
     return this.prefabs[types[Math.floor(Math.random() * types.length)]];
   };
+
+  /**
+   * Use to detect a pixel collision with the player
+   * @param coin
+   */
+  private handleCoinCollision = (coin): boolean => {
+    const player = Game.player;
+    const collision = collisionByPixel(this.canvas, player.canvas, coin.x, coin.y, coin.w, coin.h);
+    if (collision) {
+      Game.sound.getCoin();
+      Game.addCointBalance();
+    }
+    return collision;
+  }; // handleCoinCollision
 
   /**
    * Create the coins, based on prefab positions
@@ -90,11 +104,12 @@ class Coins extends GameObject {
         coin.h
       );
 
+      const collision = this.handleCoinCollision(coin);
       renderCollisors(this.ctx, coin.x, coin.y, coin.w, coin.h);
       coin.frame = ((coin.frame + 1) >= coinValues.frames) ? coinValues.repeatFrom : (coin.frame + 1);
       coin.x -= Game.miscSpeed;
 
-      if (coin.x + coin.w < 0){ return null; }
+      if ((coin.x + coin.w < 0) || collision) { return null; }
       return coin;
     });
 

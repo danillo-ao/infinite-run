@@ -46,6 +46,7 @@ class Hud {
   countScore = (): void => {
     const score = Math.floor(Game.score);
     this.score.textContent = `${score}`;
+    this.coins.textContent = `${Game.coinsBalance}`;
   };
 
   /**
