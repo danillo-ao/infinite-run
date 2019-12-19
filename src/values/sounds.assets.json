@@ -1,0 +1,4 @@
+{
+  "coins": "src/assets/sound/coin.wav",
+  "jump": "src/assets/sound/jump.wav"
+}

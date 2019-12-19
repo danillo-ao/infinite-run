@@ -72,6 +72,7 @@ class Player extends GameObject{
    */
   public jump = () => {
     if (this.state !== CPlayerState.jumping) {
+      Game.sound.jump();
       this.state = CPlayerState.jumping;
       this.gravitySpeed = ((this.gravity * this.jumpForce) * -1);
     }
