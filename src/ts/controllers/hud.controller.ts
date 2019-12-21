@@ -7,12 +7,74 @@ class Hud {
   public gameover: HTMLDivElement;
   public content: HTMLDivElement;
 
+  public gameoverCoins: HTMLDivElement;
+  public gameoverScore: HTMLDivElement;
+
   constructor() {
 
     const HudContent: HTMLDivElement = document.createElement("div");
     const GameOverContent: HTMLDivElement = document.createElement("div");
     const ScoreContent: HTMLParagraphElement = document.createElement("p");
     const CoinsContent: HTMLParagraphElement = document.createElement("p");
+
+    // create elements to gameover view
+    const GameOverLabelContent: HTMLDivElement = document.createElement("div");
+    const GameOverLabel: HTMLParagraphElement = document.createElement("p");
+    const GameOverResetGame: HTMLParagraphElement = document.createElement("p");
+
+    const GameOverScoresContent: HTMLDivElement = document.createElement("div");
+    const GameOverScoresColumnScore: HTMLDivElement = document.createElement("div");
+    const GameOverScoresColumnCoins: HTMLDivElement = document.createElement("div");
+
+    // styles of elements to gameOver view
+    GameOverLabelContent.style.width = '100%';
+    GameOverLabelContent.style.display = 'flex';
+    GameOverLabelContent.style.justifyContent = 'center';
+    GameOverLabelContent.style.alignItems = 'center';
+
+    GameOverLabel.textContent = "Game Over!";
+    GameOverLabel.style.fontSize = "40px";
+    GameOverLabel.style.margin = "0";
+    GameOverLabel.style.position = "relative";
+    GameOverLabel.style.transform = "translateY(-11px)";
+
+    GameOverScoresContent.style.width = "100%";
+    GameOverScoresContent.style.position = "absolute";
+    GameOverScoresContent.style.left = "0";
+    GameOverScoresContent.style.top = "100%";
+    GameOverScoresContent.style.fontSize = "13px";
+    GameOverScoresContent.style.display = "flex";
+    GameOverScoresContent.style.flexDirection = "row";
+
+    GameOverScoresColumnScore.style.display = "flex";
+    GameOverScoresColumnScore.style.flex = "1";
+    GameOverScoresColumnScore.style.justifyContent = "flex-start";
+    GameOverScoresColumnScore.textContent = "score: ";
+
+    GameOverScoresColumnCoins.style.display = "flex";
+    GameOverScoresColumnCoins.style.flex = "1";
+    GameOverScoresColumnCoins.style.justifyContent = "flex-end";
+    GameOverScoresColumnCoins.textContent = "coins: ";
+
+    GameOverResetGame.style.position = "absolute";
+    GameOverResetGame.style.width = "100%";
+    GameOverResetGame.style.height = "30px";
+    GameOverResetGame.style.bottom = "10%";
+    GameOverResetGame.style.alignItems = "center";
+    GameOverResetGame.style.justifyContent = "center";
+    GameOverResetGame.style.fontSize = "13px";
+    GameOverResetGame.style.textAlign = "center";
+    GameOverResetGame.classList.add("blink");
+    GameOverResetGame.textContent = "Press any key to play again!";
+
+    // mount components adding one inside another
+    GameOverScoresContent.appendChild(GameOverScoresColumnScore);
+    GameOverScoresContent.appendChild(GameOverScoresColumnCoins);
+    GameOverLabel.appendChild(GameOverScoresContent);
+
+    GameOverLabelContent.appendChild(GameOverLabel);
+    GameOverContent.appendChild(GameOverLabelContent);
+    GameOverContent.appendChild(GameOverResetGame);
 
     // style set
     HudContent.style.width = `${Game.width}px`;
@@ -26,9 +88,8 @@ class Hud {
     CoinsContent.classList.add("coins-content");
 
     // texts append
-    GameOverContent.textContent = "Game Over!";
-    ScoreContent.textContent = `${Game.score}`;
-    CoinsContent.textContent = `${Game.coinsBalance}`;
+    ScoreContent.textContent = `score: ${Game.score}`;
+    CoinsContent.textContent = `coins: ${Game.coinsBalance}`;
 
     // append to doc
     HudContent.appendChild(ScoreContent);
@@ -40,22 +101,34 @@ class Hud {
     this.score = ScoreContent;
     this.content = HudContent;
     this.gameover = GameOverContent;
+    this.gameoverScore = GameOverScoresColumnScore;
+    this.gameoverCoins = GameOverScoresColumnCoins;
     document.getElementById(Game.bodyId).appendChild(HudContent);
   }
 
   countScore = (): void => {
     const score = Math.floor(Game.score);
-    this.score.textContent = `${score}`;
-    this.coins.textContent = `${Game.coinsBalance}`;
+    this.score.textContent = `score: ${score}`;
+    this.coins.textContent = `coins: ${Game.coinsBalance}`;
   };
 
   /**
    * this function shows the gameover label to player
    */
   public showGameOver = (): void => {
+    const score = Math.floor(Game.score);
+
     this.gameover.style.display = "flex";
+    this.gameoverScore.textContent = `score: ${score}`;
+    this.gameoverCoins.textContent = `coins: ${Game.coinsBalance}`;
   }; // showGameOver
 
+  /**
+   * this function hide the gameover content to player play again
+   */
+  public hideGameOver = (): void => {
+    this.gameover.style.display = "none";
+  } // hideGameOver
 }
 
 export default Hud;

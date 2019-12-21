@@ -9,7 +9,7 @@ import {renderCollisors} from '@utils/render.util';
 
 class Coins extends GameObject {
   // private values
-  private coins: ICoin[] = [];
+  public coins: ICoin[] = [];
   private interval: number;
   private minSeconds: number = 1;
   private maxSeconds: number = 3;

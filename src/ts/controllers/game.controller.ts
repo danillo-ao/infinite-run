@@ -5,6 +5,7 @@ import Hud from "@controllers/hud.controller";
 import Enemy from "@controllers/enemy.controller";
 import Coins from '@controllers/coins.controller';
 import Sound from '@controllers/sound.controller';
+import * as playerAssets from '@values/player.assets.json';
 
 class Game {
   // dev triggers
@@ -23,6 +24,7 @@ class Game {
   public miscSpeed: number = 8;
   // game states
   private freeze: boolean = false;
+  private canResetGame: boolean = false;
   private gameover: boolean = false;
   // game objects
   public player: Player;
@@ -32,6 +34,34 @@ class Game {
   public hud: Hud;
   public sound: Sound;
   public coins: Coins;
+
+  public constructor() {
+    document.addEventListener("keydown", this.handleKeyPress);
+    document.addEventListener("touchstart", this.handleKeyPress);
+    document.addEventListener("click", this.handleTouchClick);
+  } // constructor
+
+  /**
+   * Function used to detect when user touch the screen or click in the page with mouse
+   */
+  public handleTouchClick = (): void => {
+    if (this.gameover) {
+      console.log("reset game");
+      this.resetGame();
+    }
+  }; // handleTouchClick
+
+  /**
+   * Function to detect when user press any key
+   * @param event
+   */
+  public handleKeyPress = (event): void => {
+    const keycode = event.keyCode;
+    if (this.gameover && (keycode === 38 || keycode === 40 || keycode === 32)) {
+      this.resetGame();
+    }
+  }; // handleKeyPress
+
 
   /**
    * Incrementa a velocidade de movimento do chão e dos inimigos
@@ -53,6 +83,9 @@ class Game {
    */
   public gameOver = () : void => {
     this.gameover = true;
+    setTimeout(() => {
+      this.canResetGame = true;
+    }, 400);
   }; // freezeGame
 
   /**
@@ -61,6 +94,22 @@ class Game {
   public freezeGame = () : void => {
     this.freeze = true;
   }; // freezeGame
+
+  /**
+   * When player is dead (Game Over) this function reset the game to play again
+   */
+  public resetGame = () : void => {
+    if (this.gameover && this.canResetGame) {
+      this.score = 0;
+      this.coinsBalance = 0;
+      this.enemies.enemies = [];
+      this.coins.coins = [];
+      this.miscSpeed = 8;
+
+      this.hud.hideGameOver();
+      this.gameover = false;
+    }
+  }; // resetGame
 
   /**
    * Unset the freeze state of the game

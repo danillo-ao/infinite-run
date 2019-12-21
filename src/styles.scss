@@ -28,6 +28,12 @@
   src: url("./assets/fonts/Roboto-Thin.ttf");
 }
 
+@keyframes blink {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
 /* RESET STYLES AND DEFAULT VALUES */
 
 * {
@@ -74,7 +80,7 @@ body {
   font-family: BitFont;
   margin: 0;
   padding: 0;
-  font-size: 15px;
+  font-size: 13px;
   color: #fff;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 
@@ -88,7 +94,7 @@ body {
   margin: 0;
   padding: 0;
   color: #fff;
-  font-size: 15px;
+  font-size: 13px;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
@@ -99,11 +105,39 @@ body {
   left: 0;
   top: 0;
   display: none;
-  align-items: center;
-  justify-content: center;
   color: #fff;
-  font-size: 30px;
-  background-color: rgba(0,0,0,0.4);
-  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  background-color: rgba(0,0,0,0.5);
   font-family: BitFont;
+
+  text-shadow:
+    /* first layer at 1px */
+    -1px -1px 0px #000,
+    0px -1px 0px #000,
+    1px -1px 0px #000,
+    -1px  0px 0px #000,
+    1px  0px 0px #000,
+    -1px  1px 0px #000,
+    0px  1px 0px #000,
+    1px  1px 0px #000,
+      /* second layer at 2px */
+    -2px -2px 0px #000,
+    -1px -2px 0px #000,
+    0px -2px 0px #000,
+    1px -2px 0px #000,
+    2px -2px 0px #000,
+    2px -1px 0px #000,
+    2px  0px 0px #000,
+    2px  1px 0px #000,
+    2px  2px 0px #000,
+    1px  2px 0px #000,
+    0px  2px 0px #000,
+    -1px  2px 0px #000,
+    -2px  2px 0px #000,
+    -2px  1px 0px #000,
+    -2px  0px 0px #000,
+    -2px -1px 0px #000;
+}
+
+.blink {
+  animation: blink 2s ease infinite;
 }
