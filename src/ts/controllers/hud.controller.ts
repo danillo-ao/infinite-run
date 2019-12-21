@@ -7,6 +7,7 @@ class Hud {
   public gameover: HTMLDivElement;
   public content: HTMLDivElement;
 
+  public gameoverPlayAgain: HTMLParagraphElement;
   public gameoverCoins: HTMLDivElement;
   public gameoverScore: HTMLDivElement;
 
@@ -56,6 +57,7 @@ class Hud {
     GameOverScoresColumnCoins.style.justifyContent = "flex-end";
     GameOverScoresColumnCoins.textContent = "coins: ";
 
+    GameOverResetGame.style.display = "none";
     GameOverResetGame.style.position = "absolute";
     GameOverResetGame.style.width = "100%";
     GameOverResetGame.style.height = "30px";
@@ -103,6 +105,7 @@ class Hud {
     this.gameover = GameOverContent;
     this.gameoverScore = GameOverScoresColumnScore;
     this.gameoverCoins = GameOverScoresColumnCoins;
+    this.gameoverPlayAgain = GameOverResetGame;
     document.getElementById(Game.bodyId).appendChild(HudContent);
   }
 
@@ -121,6 +124,8 @@ class Hud {
     this.gameover.style.display = "flex";
     this.gameoverScore.textContent = `score: ${score}`;
     this.gameoverCoins.textContent = `coins: ${Game.coinsBalance}`;
+
+    setTimeout(() => { this.gameoverPlayAgain.style.display = "flex"; }, 2000);
   }; // showGameOver
 
   /**
@@ -128,6 +133,7 @@ class Hud {
    */
   public hideGameOver = (): void => {
     this.gameover.style.display = "none";
+    this.gameoverPlayAgain.style.display = "none";
   } // hideGameOver
 }
 

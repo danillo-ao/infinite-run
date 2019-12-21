@@ -22,6 +22,9 @@ class Game {
   // floor settings
   public floorPosition = (this.height - 32);
   public miscSpeed: number = 8;
+
+  public enableEnemies: boolean = false;
+  public enableCoins: boolean = false;
   // game states
   private freeze: boolean = false;
   private canResetGame: boolean = false;
@@ -46,7 +49,6 @@ class Game {
    */
   public handleTouchClick = (): void => {
     if (this.gameover) {
-      console.log("reset game");
       this.resetGame();
     }
   }; // handleTouchClick
@@ -83,9 +85,8 @@ class Game {
    */
   public gameOver = () : void => {
     this.gameover = true;
-    setTimeout(() => {
-      this.canResetGame = true;
-    }, 400);
+    this.toggleMisc(false);
+    setTimeout(() => { this.canResetGame = true; }, 2000);
   }; // freezeGame
 
   /**
@@ -108,8 +109,22 @@ class Game {
 
       this.hud.hideGameOver();
       this.gameover = false;
+      this.canResetGame = false;
+
+      setTimeout(() => { this.enableEnemies = true; }, 1000);
+      setTimeout(() => { this.enableCoins = true; }, 1500);
     }
   }; // resetGame
+
+  /**
+   * Function used to toggle the misc element
+   * Misc elements (Coins and enemies)
+   * @param toggle
+   */
+  public toggleMisc = (toggle: boolean): void => {
+    this.enableEnemies = toggle;
+    this.enableCoins = toggle;
+  }; // toggleMisc
 
   /**
    * Unset the freeze state of the game
@@ -147,8 +162,8 @@ class Game {
     this.sound = new Sound();
 
     setInterval(this.draw, this.fps);
-    // setInterval(this.freezeGame, 3000);
     setInterval(this.increaseSpeed, 1000);
+    setTimeout(() => { this.toggleMisc(true); }, 1000);
   };
 
 }

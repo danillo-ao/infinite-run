@@ -78,7 +78,9 @@ class Coins extends GameObject {
       }
     }
 
-    this.coins = [...this.coins, ...coins];
+    if (Game.enableCoins) {
+      this.coins = [...this.coins, ...coins];
+    }
   }; // createCoins
 
   /**
