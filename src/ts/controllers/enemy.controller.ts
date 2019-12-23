@@ -67,7 +67,7 @@ class Enemy extends GameObject {
     };
 
     if (this.unlimitedEnemies || !this.unlimitedEnemies && this.enemies.length < this.enemiesLimit){
-      if (Game.enableEnemies) {
+      if (Game.enableEnemies && Game.gameStarted) {
         this.enemies.push(enemy);
       }
     }

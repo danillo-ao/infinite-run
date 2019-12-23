@@ -44,7 +44,7 @@ class Coins extends GameObject {
     const collision = collisionByPixel(this.canvas, player.canvas, coin.x, coin.y, coin.w, coin.h);
     if (collision) {
       Game.sound.getCoin();
-      Game.addCointBalance();
+      Game.addCoinsBalance();
     }
     return collision;
   }; // handleCoinCollision
@@ -78,7 +78,7 @@ class Coins extends GameObject {
       }
     }
 
-    if (Game.enableCoins) {
+    if (Game.enableCoins && Game.gameStarted) {
       this.coins = [...this.coins, ...coins];
     }
   }; // createCoins

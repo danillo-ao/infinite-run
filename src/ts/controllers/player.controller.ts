@@ -34,12 +34,15 @@ class Player extends GameObject{
    * @param event
    */
   private handleControlDown = (event: KeyboardEvent): void => {
-    if (event.keyCode === 38 || event.keyCode === 32) {
-      this.jump();
-    }
+    // Only able to control player, if the game has been started
+    if (Game.gameStarted) {
+      if (event.keyCode === 38 || event.keyCode === 32 ) {
+        this.jump();
+      }
 
-    if (event.keyCode === 40) {
-      this.roll();
+      if (event.keyCode === 40) {
+        this.roll();
+      }
     }
   };  // handleJump
 
@@ -71,10 +74,10 @@ class Player extends GameObject{
    * apply the jump
    */
   public jump = () => {
-    if (this.state !== CPlayerState.jumping) {
-      Game.sound.jump();
+    if (this.state !== CPlayerState.jumping && Game.gameStarted && !Game.gameover) {
       this.state = CPlayerState.jumping;
       this.gravitySpeed = ((this.gravity * this.jumpForce) * -1);
+      Game.sound.jump();
     }
   }; // jump
 

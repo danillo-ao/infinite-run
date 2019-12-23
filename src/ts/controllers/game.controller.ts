@@ -23,12 +23,15 @@ class Game {
   public floorPosition = (this.height - 32);
   public miscSpeed: number = 8;
 
+  public resetGameTime: number = 1500;
+  public gameStarted: boolean = false;
   public enableEnemies: boolean = false;
   public enableCoins: boolean = false;
+  public gameover: boolean = false;
   // game states
   private freeze: boolean = false;
   private canResetGame: boolean = false;
-  private gameover: boolean = false;
+
   // game objects
   public player: Player;
   public background: Background;
@@ -40,7 +43,7 @@ class Game {
 
   public constructor() {
     document.addEventListener("keydown", this.handleKeyPress);
-    document.addEventListener("touchstart", this.handleKeyPress);
+    document.addEventListener("touchstart", this.handleTouchClick);
     document.addEventListener("click", this.handleTouchClick);
   } // constructor
 
@@ -50,6 +53,10 @@ class Game {
   public handleTouchClick = (): void => {
     if (this.gameover) {
       this.resetGame();
+    }
+
+    if (!this.gameStarted) {
+      this.gameStart();
     }
   }; // handleTouchClick
 
@@ -62,23 +69,29 @@ class Game {
     if (this.gameover && (keycode === 38 || keycode === 40 || keycode === 32)) {
       this.resetGame();
     }
-  }; // handleKeyPress
 
+    // if game isn't started, start the game
+    if (!this.gameStarted && (keycode === 38 || keycode === 40 || keycode === 32)) {
+      this.gameStart();
+    }
+  }; // handleKeyPress
 
   /**
    * Incrementa a velocidade de movimento do chão e dos inimigos
    */
   public increaseSpeed = () => {
-    const newSpeed = this.miscSpeed + 0.1;
-    this.miscSpeed = newSpeed > 25 ? 25 : newSpeed;
-  };
+    if (this.gameStarted) {
+      const newSpeed = this.miscSpeed + 0.1;
+      this.miscSpeed = newSpeed > 25 ? 25 : newSpeed;
+    }
+  }; // increaseSpeed
 
   /**
    * Add a coin to balance
    */
-  public addCointBalance = (): void => {
+  public addCoinsBalance = (): void => {
     this.coinsBalance++;
-  }; // addCointBalance
+  }; // addCoinsaddBalance
 
   /**
    * Set the gameover state for the game. End the game
@@ -86,7 +99,7 @@ class Game {
   public gameOver = () : void => {
     this.gameover = true;
     this.toggleMisc(false);
-    setTimeout(() => { this.canResetGame = true; }, 2000);
+    setTimeout(() => { this.canResetGame = true; }, this.resetGameTime);
   }; // freezeGame
 
   /**
@@ -117,7 +130,17 @@ class Game {
   }; // resetGame
 
   /**
-   * Function used to toggle the misc element
+   * Function used to start the game, hidding game instrunctions
+   */
+  public gameStart = () => {
+    if (!this.gameStarted) {
+      this.hud.gameStart();
+      setTimeout(() => { this.gameStarted = true; }, 200);
+    }
+  }; // gameStart
+
+  /**
+   * Function used to toggle the misc elements
    * Misc elements (Coins and enemies)
    * @param toggle
    */
@@ -137,7 +160,9 @@ class Game {
   public draw = () => {
     // Verify if game isn't freezed
     if (!this.freeze && !this.gameover) {
-      this.score += 0.4;
+      if (this.gameStarted) {
+        this.score += 0.4;
+      }
       // draw the game/
       this.background.render();
       this.player.render();
@@ -148,6 +173,7 @@ class Game {
       this.hud.countScore();
     }
   };
+
   // setup the game and create a loop interval
   public setup = () => {
     // setup of controllers
@@ -163,7 +189,9 @@ class Game {
 
     setInterval(this.draw, this.fps);
     setInterval(this.increaseSpeed, 1000);
-    setTimeout(() => { this.toggleMisc(true); }, 1000);
+
+    setTimeout(() => { this.enableEnemies = true; }, 1000);
+    setTimeout(() => { this.enableCoins = true; }, 1500);
   };
 
 }

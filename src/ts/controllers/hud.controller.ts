@@ -6,6 +6,7 @@ class Hud {
   public coins: HTMLParagraphElement;
   public gameover: HTMLDivElement;
   public content: HTMLDivElement;
+  public gamestart: HTMLDivElement;
 
   public gameoverPlayAgain: HTMLParagraphElement;
   public gameoverCoins: HTMLDivElement;
@@ -17,6 +18,8 @@ class Hud {
     const GameOverContent: HTMLDivElement = document.createElement("div");
     const ScoreContent: HTMLParagraphElement = document.createElement("p");
     const CoinsContent: HTMLParagraphElement = document.createElement("p");
+    const GameStartContent: HTMLDivElement = document.createElement("div");
+    const GameStartLabel: HTMLParagraphElement = document.createElement("p");
 
     // create elements to gameover view
     const GameOverLabelContent: HTMLDivElement = document.createElement("div");
@@ -28,6 +31,14 @@ class Hud {
     const GameOverScoresColumnCoins: HTMLDivElement = document.createElement("div");
 
     // styles of elements to gameOver view
+    GameStartContent.classList.add("gamestart-content");
+    GameStartLabel.classList.add("blink");
+    GameStartLabel.style.margin = "0";
+    GameStartLabel.style.width = "100%";
+    GameStartLabel.style.textAlign = "center";
+    GameStartLabel.style.display = "table";
+    GameStartLabel.textContent = 'Press any key or click to start!';
+
     GameOverLabelContent.style.width = '100%';
     GameOverLabelContent.style.display = 'flex';
     GameOverLabelContent.style.justifyContent = 'center';
@@ -78,6 +89,8 @@ class Hud {
     GameOverContent.appendChild(GameOverLabelContent);
     GameOverContent.appendChild(GameOverResetGame);
 
+    GameStartContent.appendChild(GameStartLabel);
+
     // style set
     HudContent.style.width = `${Game.width}px`;
     HudContent.style.height = `${Game.height}px`;
@@ -97,12 +110,14 @@ class Hud {
     HudContent.appendChild(ScoreContent);
     HudContent.appendChild(CoinsContent);
     HudContent.appendChild(GameOverContent);
+    HudContent.appendChild(GameStartContent);
 
     // set class values
     this.coins = CoinsContent;
     this.score = ScoreContent;
     this.content = HudContent;
     this.gameover = GameOverContent;
+    this.gamestart = GameStartContent;
     this.gameoverScore = GameOverScoresColumnScore;
     this.gameoverCoins = GameOverScoresColumnCoins;
     this.gameoverPlayAgain = GameOverResetGame;
@@ -125,7 +140,7 @@ class Hud {
     this.gameoverScore.textContent = `score: ${score}`;
     this.gameoverCoins.textContent = `coins: ${Game.coinsBalance}`;
 
-    setTimeout(() => { this.gameoverPlayAgain.style.display = "flex"; }, 2000);
+    setTimeout(() => { this.gameoverPlayAgain.style.display = "flex"; }, Game.resetGameTime);
   }; // showGameOver
 
   /**
@@ -134,7 +149,15 @@ class Hud {
   public hideGameOver = (): void => {
     this.gameover.style.display = "none";
     this.gameoverPlayAgain.style.display = "none";
-  } // hideGameOver
+  }; // hideGameOver
+
+  /**
+   * Used to hide the game start instrunctions
+   */
+  public gameStart = (): void => {
+    this.gamestart.style.display = "none";
+  }; // gameStart
+
 }
 
 export default Hud;
