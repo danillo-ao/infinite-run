@@ -12,6 +12,7 @@ class Game {
   public showCollisors: boolean = false;
   // public html values
   public bodyId: string = "body-root";
+  public loaderId: string = "loader-root";
   // public game values
   public width:number = window.innerWidth < 500 ? window.innerWidth : 500;
   public height:number = window.innerWidth < 300 ? window.innerWidth : 300;
@@ -46,6 +47,18 @@ class Game {
     document.addEventListener("touchstart", this.handleTouchClick);
     document.addEventListener("click", this.handleTouchClick);
   } // constructor
+
+  public hideLoader = (): void => {
+    setTimeout(() => {
+      const element: HTMLElement = document.getElementById(this.loaderId);
+      if (!!element) {
+        element.classList.add("fadeout");
+        setTimeout(() => {
+          element.style.display = "none";
+        }, 1000);
+      }
+    }, 2500);
+  };
 
   /**
    * Function used to detect when user touch the screen or click in the page with mouse
@@ -176,6 +189,9 @@ class Game {
 
   // setup the game and create a loop interval
   public setup = () => {
+
+    this.hideLoader();
+
     // setup of controllers
     this.background = new Background();
     this.floor = new Floor();

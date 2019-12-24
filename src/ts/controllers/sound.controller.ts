@@ -19,6 +19,7 @@ class Sound {
    */
   public createSoundElement = (source: string): HTMLAudioElement => {
     const audio: HTMLAudioElement = document.createElement("audio");
+    audio.volume = 0;
     audio.autoplay = true;
     audio.src = source;
 
