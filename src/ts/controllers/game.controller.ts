@@ -21,7 +21,7 @@ class Game {
   public fps:number = (1000 / 30); // <~ divisor is the fps
   // public values
   public score: number = 0;
-  public highscore: number = Math.floor(parseFloat(window.localStorage.getItem(this.storageKey)));
+  public highscore: number = Math.floor(parseFloat(window.localStorage.getItem(this.storageKey))) || 0;
   public coinsBalance: number = 0;
   // floor settings
   public floorPosition = (this.height - 32);
