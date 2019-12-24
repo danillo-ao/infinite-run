@@ -43,7 +43,7 @@ Therefore, all of elements and objects can be controlled separated, so that it d
 
 ----
 
-#### Assets
+#### • Assets
 In the first version, the game use assets of classic games like Sonic and Super Mario. The game was developed just and only to study and practice. And there is no profit end.
 But, my intention is redraw every sprite     to my own. That way, i practice some art skills.
 
