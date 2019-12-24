@@ -3,6 +3,7 @@ import Game from "@controllers/game.controller";
 class Hud {
 
   public score: HTMLParagraphElement;
+  public highScore: HTMLParagraphElement;
   public coins: HTMLParagraphElement;
   public gameover: HTMLDivElement;
   public content: HTMLDivElement;
@@ -11,12 +12,14 @@ class Hud {
   public gameoverPlayAgain: HTMLParagraphElement;
   public gameoverCoins: HTMLDivElement;
   public gameoverScore: HTMLDivElement;
+  public gameoverHighScore: HTMLDivElement;
 
   constructor() {
 
     const HudContent: HTMLDivElement = document.createElement("div");
     const GameOverContent: HTMLDivElement = document.createElement("div");
     const ScoreContent: HTMLParagraphElement = document.createElement("p");
+    const HighScoreContent: HTMLParagraphElement = document.createElement("p");
     const CoinsContent: HTMLParagraphElement = document.createElement("p");
     const GameStartContent: HTMLDivElement = document.createElement("div");
     const GameStartLabel: HTMLParagraphElement = document.createElement("p");
@@ -26,6 +29,7 @@ class Hud {
     const GameOverLabel: HTMLParagraphElement = document.createElement("p");
     const GameOverResetGame: HTMLParagraphElement = document.createElement("p");
 
+    const GameOverHighScoreContent: HTMLDivElement = document.createElement("div");
     const GameOverScoresContent: HTMLDivElement = document.createElement("div");
     const GameOverScoresColumnScore: HTMLDivElement = document.createElement("div");
     const GameOverScoresColumnCoins: HTMLDivElement = document.createElement("div");
@@ -48,7 +52,16 @@ class Hud {
     GameOverLabel.style.fontSize = "40px";
     GameOverLabel.style.margin = "0";
     GameOverLabel.style.position = "relative";
-    GameOverLabel.style.transform = "translateY(-11px)";
+    GameOverLabel.style.transform = "translateY(-20px)";
+
+    GameOverHighScoreContent.style.width = "100%";
+    GameOverHighScoreContent.style.position = "absolute";
+    GameOverHighScoreContent.style.left = "0";
+    GameOverHighScoreContent.style.bottom = "95%";
+    GameOverHighScoreContent.style.fontSize = "13px";
+    GameOverHighScoreContent.style.display = "flex";
+    GameOverHighScoreContent.style.flexDirection = "row";
+    GameOverHighScoreContent.textContent = `High Score: ${Game.highscore}`;
 
     GameOverScoresContent.style.width = "100%";
     GameOverScoresContent.style.position = "absolute";
@@ -72,7 +85,7 @@ class Hud {
     GameOverResetGame.style.position = "absolute";
     GameOverResetGame.style.width = "100%";
     GameOverResetGame.style.height = "30px";
-    GameOverResetGame.style.bottom = "10%";
+    GameOverResetGame.style.bottom = "15%";
     GameOverResetGame.style.alignItems = "center";
     GameOverResetGame.style.justifyContent = "center";
     GameOverResetGame.style.fontSize = "13px";
@@ -83,6 +96,7 @@ class Hud {
     // mount components adding one inside another
     GameOverScoresContent.appendChild(GameOverScoresColumnScore);
     GameOverScoresContent.appendChild(GameOverScoresColumnCoins);
+    GameOverLabel.appendChild(GameOverHighScoreContent);
     GameOverLabel.appendChild(GameOverScoresContent);
 
     GameOverLabelContent.appendChild(GameOverLabel);
@@ -101,13 +115,16 @@ class Hud {
     GameOverContent.classList.add("gameover-content");
     ScoreContent.classList.add("score-content");
     CoinsContent.classList.add("coins-content");
+    HighScoreContent.classList.add("highscore-content");
 
     // texts append
     ScoreContent.textContent = `score: ${Game.score}`;
+    HighScoreContent.textContent = `high score: ${Game.highscore}`;
     CoinsContent.textContent = `coins: ${Game.coinsBalance}`;
 
     // append to doc
     HudContent.appendChild(ScoreContent);
+    HudContent.appendChild(HighScoreContent);
     HudContent.appendChild(CoinsContent);
     HudContent.appendChild(GameOverContent);
     HudContent.appendChild(GameStartContent);
@@ -115,9 +132,11 @@ class Hud {
     // set class values
     this.coins = CoinsContent;
     this.score = ScoreContent;
+    this.highScore = HighScoreContent;
     this.content = HudContent;
     this.gameover = GameOverContent;
     this.gamestart = GameStartContent;
+    this.gameoverHighScore = GameOverHighScoreContent;
     this.gameoverScore = GameOverScoresColumnScore;
     this.gameoverCoins = GameOverScoresColumnCoins;
     this.gameoverPlayAgain = GameOverResetGame;
@@ -126,6 +145,7 @@ class Hud {
 
   countScore = (): void => {
     const score = Math.floor(Game.score);
+    this.highScore.textContent = `high score: ${Game.highscore}`;
     this.score.textContent = `score: ${score}`;
     this.coins.textContent = `coins: ${Game.coinsBalance}`;
   };
@@ -137,6 +157,7 @@ class Hud {
     const score = Math.floor(Game.score);
 
     this.gameover.style.display = "flex";
+    this.gameoverHighScore.textContent = `high score: ${Game.highscore}`;
     this.gameoverScore.textContent = `score: ${score}`;
     this.gameoverCoins.textContent = `coins: ${Game.coinsBalance}`;
 

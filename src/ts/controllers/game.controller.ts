@@ -6,6 +6,7 @@ import Enemy from "@controllers/enemy.controller";
 import Coins from '@controllers/coins.controller';
 import Sound from '@controllers/sound.controller';
 import * as playerAssets from '@values/player.assets.json';
+import {Random} from '@utils/func.util';
 
 class Game {
   // dev triggers
@@ -13,12 +14,14 @@ class Game {
   // public html values
   public bodyId: string = "body-root";
   public loaderId: string = "loader-root";
+  public storageKey: string = "IR-high-score";
   // public game values
   public width:number = window.innerWidth < 500 ? window.innerWidth : 500;
   public height:number = window.innerWidth < 300 ? window.innerWidth : 300;
   public fps:number = (1000 / 30); // <~ divisor is the fps
   // public values
   public score: number = 0;
+  public highscore: number = Math.floor(parseFloat(window.localStorage.getItem(this.storageKey)));
   public coinsBalance: number = 0;
   // floor settings
   public floorPosition = (this.height - 32);
@@ -48,6 +51,9 @@ class Game {
     document.addEventListener("click", this.handleTouchClick);
   } // constructor
 
+  /**
+   * Used to hide the loading display and show the canvas game
+   */
   public hideLoader = (): void => {
     setTimeout(() => {
       const element: HTMLElement = document.getElementById(this.loaderId);
@@ -57,8 +63,8 @@ class Game {
           element.style.display = "none";
         }, 1000);
       }
-    }, 2500);
-  };
+    }, Random(1000, 2500));
+  }; // hideLoader
 
   /**
    * Function used to detect when user touch the screen or click in the page with mouse
@@ -110,10 +116,26 @@ class Game {
    * Set the gameover state for the game. End the game
    */
   public gameOver = () : void => {
+    this.saveHighScore();
     this.gameover = true;
     this.toggleMisc(false);
     setTimeout(() => { this.canResetGame = true; }, this.resetGameTime);
   }; // freezeGame
+
+  /**
+   * Function used to save the user high score in the game
+   */
+  public saveHighScore = (): void => {
+    const highScore:number = parseFloat(window.localStorage.getItem(this.storageKey));
+    if (!!highScore) {
+      const newHighScore: number = this.score > highScore ? this.score : highScore;
+      window.localStorage.setItem(this.storageKey, Math.floor(newHighScore).toString());
+      this.highscore = Math.floor(newHighScore);
+    } else {
+      window.localStorage.setItem(this.storageKey, Math.floor(this.score).toString());
+      this.highscore = Math.floor(this.score);
+    }
+  }; // saveHighScore
 
   /**
    * Set the game as freezed
