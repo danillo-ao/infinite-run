@@ -30,8 +30,9 @@ I've chosen to use TypeScript, by many reasons. The main reason, is the variable
 
 Used to positioning some elements, to define the patterns of typographies. Creation of keyframes animations like blink and fading
 
-#### • How game was developed
 ----
+
+#### • How game was developed
 The game use the POO architecture, where each of one objects of the game, is an controller in typescript
 
 Basically, the game has one controller, that i'll call "master". This controller, is responsable to control each one another controllers. Also, it store the game values, like score, coins getted, the high score and etc. This controller is responsable by life cycle of the game, using an interval to draw and redraw the scene, calling the other controllers.
@@ -40,9 +41,10 @@ Each of Canvas in the scene, has an Controller in TypeScript, who is responsable
 
 Therefore, all of elements and objects can be controlled separated, so that it does not conflict each with other
 
-#### Assets
 ----
+
+#### Assets
 In the first version, the game use assets of classic games like Sonic and Super Mario. The game was developed just and only to study and practice. And there is no profit end.
-But, my intention is redraw every asset to my own. That way, i practice some art skills.
+But, my intention is redraw every sprite     to my own. That way, i practice some art skills.
 
 Every asset used in this game, can be found for free in the internet. In my case, i found it in the [spriters-resource](https://www.spriters-resource.com/ "spriters-resource")
