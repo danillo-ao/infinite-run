@@ -17,7 +17,7 @@ class Player extends GameObject{
 
   private gravity: number = 5;
   private gravitySpeed: number = this.gravity;
-  private jumpForce: number = 6;
+  private jumpForce: number = 6.4;
 
   public constructor() {
     super(playerAssets.path);
@@ -39,6 +39,10 @@ class Player extends GameObject{
       if (event.keyCode === 38 || event.keyCode === 32 ) {
         this.jump();
       }
+
+      if (event.keyCode === 40) {
+        this.roll();
+      }
     }
   };  // handleJump
 
@@ -47,8 +51,22 @@ class Player extends GameObject{
    * @param event
    */
   private handleControlUp = (event: KeyboardEvent): void => {
-    if (event.keyCode === 40) {
+    if (event.keyCode === 40 && this.state === CPlayerState.rolling) {
       this.state = CPlayerState.running;
+    }
+  };
+
+  /**
+   * Apply the rolling of player, if they're in the ground. If they're jumping
+   * reset the weight of the gravity so hell fell faster
+   */
+  public roll = () => {
+    if (this.state === CPlayerState.jumping) {
+      // quando o player estiver pulando, reseta o peso da gravidade
+      this.gravitySpeed = this.gravity;
+    } else if (this.state === CPlayerState.running) {
+      // aplica o rolamento
+      this.state = CPlayerState.rolling;
     }
   };
 
@@ -56,7 +74,7 @@ class Player extends GameObject{
    * apply the jump
    */
   public jump = () => {
-    if ((this.state !== CPlayerState.jumping) && (this.state !== CPlayerState.falling) && Game.gameStarted && !Game.gameover) {
+    if (this.state !== CPlayerState.jumping && Game.gameStarted && !Game.gameover) {
       this.state = CPlayerState.jumping;
       this.gravitySpeed = ((this.gravity * this.jumpForce) * -1);
       Game.sound.jump();
@@ -67,10 +85,6 @@ class Player extends GameObject{
    * Render the player jumping animation
    */
   private renderPlayerAnimation = () => {
-    if (this.state === CPlayerState.jumping && this.gravitySpeed > 0) {
-      this.state = CPlayerState.falling;
-    }
-
     const assetState = playerAssets[this.state];
     const frameX = (this.frame * assetState.width);
     const frameY = assetState.offsetTop;
@@ -101,7 +115,7 @@ class Player extends GameObject{
     let newGravity = (this.y + this.gravitySpeed);
     if (newGravity >= floor){
       newGravity = floor;
-      if ((this.state === CPlayerState.jumping) || (this.state === CPlayerState.falling)) {
+      if (this.state === CPlayerState.jumping) {
         this.state = CPlayerState.running;
       }
     }

@@ -12,7 +12,7 @@ class Coins extends GameObject {
   public coins: ICoin[] = [];
   private interval: number;
   private minSeconds: number = 1;
-  private maxSeconds: number = 4;
+  private maxSeconds: number = 3;
   // define the prefabs os coins structures
   private prefabs: TCoinsPrefabs = {
     fivebyone: { rows: 1, columns: 5, addY: 30 },
@@ -57,7 +57,7 @@ class Coins extends GameObject {
     const prefab: ICoinsPrefab = this.getRandomPrefabType();
     // start positions of the coins
     const startX: number = this.canvas.width;
-    const startY: number = (this.canvas.height / 2.3) + prefab.addY;
+    const startY: number = (this.canvas.height / 2) + prefab.addY;
     // coins generic values
     const spacing: number = 10;
     const asset = coinsAssets[this.state];
