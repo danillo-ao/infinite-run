@@ -57,7 +57,7 @@ class Coins extends GameObject {
     const prefab: ICoinsPrefab = this.getRandomPrefabType();
     // start positions of the coins
     const startX: number = this.canvas.width;
-    const startY: number = (this.canvas.height / 2.5) + prefab.addY;
+    const startY: number = (this.canvas.height / 2.3) + prefab.addY;
     // coins generic values
     const spacing: number = 10;
     const asset = coinsAssets[this.state];

@@ -1,17 +1,17 @@
 {
   "path": "src/assets/enemies/enemies.png",
-  "motobug": {
-    "frames": 4,
-    "width": 39,
-    "height": 29,
+  "slime": {
+    "frames": 8,
+    "width": 42,
+    "height": 22,
     "repeatFrom": 0,
     "offsetY": 0
   },
-  "groundbell": {
-    "frames": 15,
-    "width": 25,
-    "height": 23,
+  "mushroom": {
+    "frames": 4,
+    "width": 30,
+    "height": 31,
     "repeatFrom": 0,
-    "offsetY": 29
+    "offsetY": 22
   }
 }

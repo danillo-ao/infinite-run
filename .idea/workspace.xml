@@ -3,17 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7f73be-9654-47a0-bba1-60fba085f6d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/player/annotations.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/player/player-original.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/player/player.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/player/player.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ts/constants/player.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/constants/player.types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ts/controllers/background.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/background.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/enemies/enemies.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/enemies/enemies.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/enemies/enemies.psd" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/enemies/enemies.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/constants/enemies.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/constants/enemies.types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ts/controllers/coins.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/coins.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ts/controllers/enemy.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/enemy.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ts/controllers/game.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/game.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ts/controllers/player.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/controllers/player.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/values/player.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/values/player.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/values/enemies.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/values/enemies.assets.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +111,8 @@
       <workItem from="1576955256602" duration="6708000" />
       <workItem from="1577128691088" duration="3392000" />
       <workItem from="1577153265046" duration="11860000" />
-      <workItem from="1577512595859" duration="3764000" />
+      <workItem from="1577512595859" duration="4202000" />
+      <workItem from="1577550850688" duration="2097000" />
     </task>
     <servers />
   </component>

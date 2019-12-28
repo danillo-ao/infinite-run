@@ -28,7 +28,7 @@ class Enemy extends GameObject {
    * Return an random enemy type
    */
   private static randomEnemyType () : string {
-    const enemyTypes: TEnemyType[] = ["groundbell", "motobug"];
+    const enemyTypes: TEnemyType[] = ["slime", "mushroom"];
     return enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
   }
 

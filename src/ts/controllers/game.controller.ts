@@ -19,7 +19,7 @@ class Game {
   // public game values
   public width:number = window.innerWidth < 500 ? window.innerWidth : 500;
   public height:number = window.innerWidth < 300 ? window.innerWidth : 300;
-  public fps:number = (1000 / 16); // <~ divisor is the fps
+  public fps:number = (1000 / 20); // <~ divisor is the fps
   // public values
   public score: number = 0;
   public highscore: number = Math.floor(parseFloat(window.localStorage.getItem(this.storageKey))) || 0;
@@ -101,8 +101,12 @@ class Game {
    */
   public increaseSpeed = () => {
     if (this.gameStarted) {
-      const newSpeed = this.miscSpeed + 0.1;
-      this.miscSpeed = newSpeed > 25 ? 25 : newSpeed;
+      const newSpeed = this.miscSpeed + 0.2;
+      this.miscSpeed = newSpeed > 30 ? 30 : newSpeed;
+      if (this.miscSpeed > 17) {
+        this.enemies.minSeconds = 0.5;
+        this.enemies.maxSeconds = 1.5;
+      }
     }
   }; // increaseSpeed
 
@@ -153,6 +157,9 @@ class Game {
       this.score = 0;
       this.coinsBalance = 0;
       this.enemies.enemies = [];
+      this.enemies.minSeconds = 1.2;
+      this.enemies.maxSeconds = 1.8;
+
       this.coins.coins = [];
       this.miscSpeed = 8;
 
