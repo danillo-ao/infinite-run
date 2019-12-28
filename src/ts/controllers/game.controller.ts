@@ -7,6 +7,7 @@ import Coins from '@controllers/coins.controller';
 import Sound from '@controllers/sound.controller';
 import * as playerAssets from '@values/player.assets.json';
 import {Random} from '@utils/func.util';
+import {CPlayerState} from '@constants/player.types';
 
 class Game {
   // dev triggers
@@ -25,7 +26,7 @@ class Game {
   public coinsBalance: number = 0;
   // floor settings
   public floorPosition = (this.height - 32);
-  public miscSpeed: number = 8;
+  public miscSpeed: number = 0; // 8;
 
   public resetGameTime: number = 1500;
   public gameStarted: boolean = false;
@@ -170,6 +171,11 @@ class Game {
   public gameStart = () => {
     if (!this.gameStarted) {
       this.hud.gameStart();
+
+      this.player.state = CPlayerState.running;
+      this.miscSpeed = 8;
+      this.background.speed = 3;
+
       setTimeout(() => { this.gameStarted = true; }, 200);
     }
   }; // gameStart

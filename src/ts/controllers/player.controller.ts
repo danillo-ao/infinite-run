@@ -8,7 +8,7 @@ import {renderCollisors} from '@utils/render.util';
 class Player extends GameObject{
 
   private frame: number = 0;
-  private state: TPlayerState = CPlayerState.running;
+  public state: TPlayerState = Game.gameStarted ? CPlayerState.running : CPlayerState.idle;
 
   public y: number = (Game.floorPosition - playerAssets.running.height);
   public x: number = 30;
