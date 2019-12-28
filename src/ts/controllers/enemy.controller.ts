@@ -21,14 +21,14 @@ class Enemy extends GameObject {
 
   // public values
   public enemies: IEnemy[] = [];
-  public minSeconds: number = 0.5;
-  public maxSeconds: number = 1.2;
+  public minSeconds: number = 1.2;
+  public maxSeconds: number = 1.8;
 
   /**
    * Return an random enemy type
    */
   private static randomEnemyType () : string {
-    const enemyTypes: TEnemyType[] = ["groundbell", "motobug"];
+    const enemyTypes: TEnemyType[] = ["slime", "mushroom"];
     return enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
   }
 
