@@ -7,6 +7,7 @@ import Coins from '@controllers/coins.controller';
 import Sound from '@controllers/sound.controller';
 import * as playerAssets from '@values/player.assets.json';
 import {Random} from '@utils/func.util';
+import {CPlayerState} from '@constants/player.types';
 
 class Game {
   // dev triggers
@@ -18,14 +19,14 @@ class Game {
   // public game values
   public width:number = window.innerWidth < 500 ? window.innerWidth : 500;
   public height:number = window.innerWidth < 300 ? window.innerWidth : 300;
-  public fps:number = (1000 / 30); // <~ divisor is the fps
+  public fps:number = (1000 / 16); // <~ divisor is the fps
   // public values
   public score: number = 0;
   public highscore: number = Math.floor(parseFloat(window.localStorage.getItem(this.storageKey))) || 0;
   public coinsBalance: number = 0;
   // floor settings
   public floorPosition = (this.height - 32);
-  public miscSpeed: number = 8;
+  public miscSpeed: number = 0; // 8;
 
   public resetGameTime: number = 1500;
   public gameStarted: boolean = false;
@@ -170,6 +171,10 @@ class Game {
   public gameStart = () => {
     if (!this.gameStarted) {
       this.hud.gameStart();
+
+      this.miscSpeed = 8;
+      this.background.speed = 2;
+      this.player.state = CPlayerState.running;
       setTimeout(() => { this.gameStarted = true; }, 200);
     }
   }; // gameStart

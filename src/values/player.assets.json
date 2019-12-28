@@ -3,22 +3,29 @@
   "running": {
     "offsetTop": 0,
     "frames": 8,
-    "height": 36,
-    "width": 31,
+    "height": 66,
+    "width": 42,
+    "repeatFrom": 0
+  },
+  "idle": {
+    "offsetTop": 67,
+    "frames": 12,
+    "height": 68,
+    "width": 38,
     "repeatFrom": 0
   },
   "jumping": {
-    "offsetTop": 36,
-    "frames": 9,
-    "height": 43,
-    "width": 29,
+    "offsetTop": 136,
+    "frames": 2,
+    "height": 72,
+    "width": 40,
     "repeatFrom": 0
   },
-  "rolling": {
-    "offsetTop": 79,
-    "frames": 18,
-    "width": 30,
-    "height": 30,
-    "repeatFrom": 2
+  "falling": {
+    "offsetTop": 209,
+    "frames": 1,
+    "width": 40,
+    "height": 72,
+    "repeatFrom": 0
   }
 }
