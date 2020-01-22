@@ -2,7 +2,7 @@
   "path": "src/assets/player/player.png",
   "idle": {
     "offsetTop": 0,
-    "frames": 12,
+    "frames": 22,
     "height": 39,
     "width": 31,
     "repeatFrom": 6
